@@ -32,7 +32,7 @@ sub new {
 }
 
 sub git { $_[0]->{git} //= Git::Repository->new(@{$_[0]->{options}}) }
-sub run { shift->git->run( @_ ) };
+sub run { my $s = shift; say "command: ",join(' ',@_); $s->git->run( @_ ) };
 sub dir { $_[0]->run( 'rev-parse' =>  qw( --git-dir ) ) }
 sub add_remote {
    my ( $self, $remote, $url ) = @_;
@@ -45,12 +45,12 @@ sub fetch {
 
 sub chk_new_branch {
    my ( $self, $branch_name, $source ) = @_;
-   $self->run( checkout => '-b', $branch_name, $source, {quiet => 1} )
+   $self->run( checkout => '-b', $branch_name, $source  )
 }
 
 sub checkout {
    my ($self, $branch_name ) = @_;
-   $self->run( checkout => $branch_name, {quiet =>  1} );
+   $self->run( checkout => $branch_name, {quiet =>  1} )
 }
 
 sub read_tree {
@@ -92,7 +92,10 @@ for my $key ( keys %$remotes ) {
    $git->fetch( $remote_name );
    $git->chk_new_branch( $branch_name, "$remote_name/master" );
    $git->checkout('master');
-   $git->read_tree( $remotes->{$key}->{path}, $branch_name );
+   my $dir = $git->dir;
+   my $path = $remotes->{$key}->{path};
+   say "Path: $path => dir: $dir";
+   #$git->read_tree( $path, $branch_name ) unless  -e "$dir/../$path";
 }
 
 
