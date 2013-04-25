@@ -58,6 +58,13 @@ sub read_tree {
    $self->run( 'read-tree', "--prefix=$dir_path", "-u", $branch_name );
 }
 
+sub remotes {
+   my ($self, %args) = @_;
+   my @options = ();
+   push @options, '-v' if( $args{verbose} );
+   $self->run( remote => @options );
+}
+
 package MAIN;
 use JSON;
 use File::Slurp;
@@ -85,17 +92,26 @@ map {
 };
 say Dumper( $remotes );
 
+sub add_remote {
+   my ($key, $url, $path) = @_;
+   my $remote_name = $key.'_remote';
+   my $branch_name = $key.'_branch';
+}
 for my $key ( keys %$remotes ) {
    my $remote_name = $key.'_remote';
    my $branch_name = $key.'_branch';
-   $git->add_remote( $remote_name, $remotes->{$key}->{url} );
-   $git->fetch( $remote_name );
-   $git->chk_new_branch( $branch_name, "$remote_name/master" );
-   $git->checkout('master');
    my $dir = $git->dir;
    my $path = $remotes->{$key}->{path};
-   say "Path: $path => dir: $dir";
-   #$git->read_tree( $path, $branch_name ) unless  -e "$dir/../$path";
+
+   #$git->add_remote( $remote_name, $remotes->{$key}->{url} );
+   #$git->fetch( $remote_name );
+   #$git->chk_new_branch( $branch_name, "$remote_name/master" );
+   #$git->checkout('master');
+
+   unless(  -e "$dir/../$path" ) {
+      $git->read_tree( $path, $branch_name );
+   }
+   say Dumper( $git->remotes );
 }
 
 
