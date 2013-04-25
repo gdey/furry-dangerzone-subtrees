@@ -1,0 +1,27 @@
+#!/bin/bash 
+
+MY_WD=${0%/$(basename $0)}
+
+PERL5LIB="$MY_WD/perlLib/lib/perl5"
+export PERL5LIB
+MY_CMD=$1
+if [ ! -z "$DEBUG" ] ; then
+CMD=echo 
+fi
+
+
+shift
+
+if [ -x "$MY_WD/$MY_CMD" ] ; then 
+   CMD="$CMD $MY_WD/$MY_CMD"
+elif [ -x "$MY_WD/perlLib/bin/$MY_CMD" ] ; then
+   CMD="$CMD $MY_WS/perlLib/bin/$MY_CMD" 
+
+else
+   echo "Could not find $MY_CMD command";
+   exit 1
+fi
+
+$MY_WD/init_perl.sh
+$CMD $*
+
