@@ -1,15 +1,18 @@
 # This file will contain a list of directories and the related git urls.
 { "cookbook" : {
         "nodejs" : {
-           "path" : "cookbook/nodejs"
+           "description" : "NodeJS cookbook"
+           ,"path" : "cookbook/nodejs"
            ,"url" : "git://github.com/Tealium/nodejs-cookbook.git"
         }
         ,"perl" : {
-           "path" : "cookbook/perl"
+           "description" : "Perl cookbook for chef"
+           ,"path" : "cookbook/perl"
            ,"url" : "git://github.com/Tealium/perl.git"
         }
         ,"apt" : {
-           "path" : "cookbook/apt"
+           "description" : "Cookbook to deal with apt repos."
+           ,"path" : "cookbook/apt"
            ,"url"  : "git://github.com/Tealium/apt.git"
         }
 } }
