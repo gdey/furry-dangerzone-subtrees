@@ -7,10 +7,14 @@ Includes Following Subtrees
 ===========================
 
 <!-- %%cookbooks.json:784fdb62d47dc5fcd43d055028bc231ff83fb2b1%% Subtree Section BEGIN **Do not edit** %% -->
+SHA:784fdb62d47dc5fcd43d055028bc231ff83fb2b1
 
-   * NodeJS cookbook : git://github.com/Tealium/nodejs-cookbook.git ( cookbook_nodejs_remote ) : cookbook/nodejs ( cookbook_nodejs_branch ) 
-   * Perl cookbook for chef : git://github.com/Tealium/perl.git ( cookbook_perl_remote ) : cookbook/perl ( cookbook_perl_branch ) 
-   * Cookbook to deal with apt repos. : git://github.com/Tealium/apt.git ( cookbook_apt_remote ) : cookbook/apt ( cookbook_apt_branch ) 
+<table><tr><th>Description</th><th>URL ( RemoteName )</th><th> Path ( BranchName )</th></tr>
+
+<tr><td>NodeJS cookbook </td><td> git://github.com/Tealium/nodejs-cookbook.git ( cookbook_nodejs_remote ) </td><td> cookbook/nodejs ( cookbook_nodejs_branch ) </td></tr>
+<tr><td>Perl cookbook for chef </td><td> git://github.com/Tealium/perl.git ( cookbook_perl_remote ) </td><td> cookbook/perl ( cookbook_perl_branch ) </td></tr>
+<tr><td>Cookbook to deal with apt repos. </td><td> git://github.com/Tealium/apt.git ( cookbook_apt_remote ) </td><td> cookbook/apt ( cookbook_apt_branch ) </td></tr>
+</table>
 
 <!-- %%cookbooks.json%% Subtree Section END %% -->
 
