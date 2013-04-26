@@ -7,7 +7,8 @@ Includes Following Subtrees
 ===========================
 
 <!-- %%cookbooks.json:784fdb62d47dc5fcd43d055028bc231ff83fb2b1%% Subtree Section BEGIN **Do not edit** %% -->
-SHA:784fdb62d47dc5fcd43d055028bc231ff83fb2b1
+
+SHA: 784fdb62d47dc5fcd43d055028bc231ff83fb2b1
 
 <table><tr><th>Description</th><th>URL ( RemoteName )</th><th> Path ( BranchName )</th></tr>
 
